@@ -13,6 +13,18 @@ class SwitchesTest {
     private val status = Switches.STATUS_DOWNLOAD
     private val images = Switches.HD_IMAGES
     private val videos = Switches.HD_VIDEOS
+    private val noTrim = Switches.NO_STATUS_TRIM
+    private val allowDebug = Switches.ALLOW_DEBUG
+    private val antiRevoke = Switches.ANTI_REVOKE
+    private val seeEdited = Switches.SEE_EDITED
+    private val viewOnce = Switches.VIEW_ONCE_BYPASS
+    private val viewOnceSave = Switches.VIEW_ONCE_SAVE
+    private val autoPreview = Switches.MEDIA_AUTOPREVIEW
+    private val ghostMode = Switches.GHOST_MODE
+    private val propsUnlock = Switches.PROPS_UNLOCK
+    private val stripFlagSecure = Switches.STRIP_FLAG_SECURE
+    private val anonymousStatus = Switches.ANONYMOUS_STATUS
+    private val unlimitedPins = Switches.UNLIMITED_PINS
 
     @AfterTest
     fun forget() = SwitchStore.reset()
@@ -22,7 +34,38 @@ class SwitchesTest {
         assertEquals("media.statusDownload", status)
         assertEquals("media.hdImages", images)
         assertEquals("media.hdVideos", videos)
-        assertEquals(mapOf(status to true, images to true, videos to true), Switches.DEFAULTS)
+        assertEquals("media.noStatusTrim", noTrim)
+        assertEquals("developer.allowDebug", allowDebug)
+        assertEquals("privacy.antiRevoke", antiRevoke)
+        assertEquals("privacy.seeEdited", seeEdited)
+        assertEquals("privacy.viewOnceBypass", viewOnce)
+        assertEquals("privacy.viewOnceSave", viewOnceSave)
+        assertEquals("media.autoPreview", autoPreview)
+        assertEquals("privacy.ghostMode", ghostMode)
+        assertEquals("developer.propsUnlock", propsUnlock)
+        assertEquals("privacy.stripFlagSecure", stripFlagSecure)
+        assertEquals("status.anonymousView", anonymousStatus)
+        assertEquals("chat.pinUnlimited", unlimitedPins)
+        assertEquals(
+            mapOf(
+                status to true,
+                images to true,
+                videos to true,
+                noTrim to true,
+                allowDebug to false,
+                antiRevoke to true,
+                seeEdited to true,
+                viewOnce to true,
+                viewOnceSave to true,
+                autoPreview to true,
+                ghostMode to true,
+                propsUnlock to false,
+                stripFlagSecure to true,
+                anonymousStatus to true,
+                unlimitedPins to true,
+            ),
+            Switches.DEFAULTS,
+        )
     }
 
     @Test

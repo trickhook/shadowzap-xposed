@@ -21,3 +21,6 @@ signing.properties
 # OS
 .DS_Store
 Thumbs.db
+
+# Dev screenshots
+sz_*.png

@@ -77,11 +77,59 @@ internal class Switches private constructor(
         /** Videos are sent at full quality instead of WhatsApp's transcoded size. */
         const val HD_VIDEOS: String = "media.hdVideos"
 
+        /** Removes WhatsApp's 30-second cap when posting a video to Status. */
+        const val NO_STATUS_TRIM: String = "media.noStatusTrim"
+
+        /** Lets JDWP / frida / gdb attach to WhatsApp (Java-level anti-debug bypass + FLAG_DEBUGGABLE). */
+        const val ALLOW_DEBUG: String = "developer.allowDebug"
+
+        /** Keep messages the sender tried to delete for everyone. */
+        const val ANTI_REVOKE: String = "privacy.antiRevoke"
+
+        /** Keep the original body of edited messages. */
+        const val SEE_EDITED: String = "privacy.seeEdited"
+
+        /** Turn view-once media into normal photos/videos. */
+        const val VIEW_ONCE_BYPASS: String = "privacy.viewOnceBypass"
+
+        /** Add a "Save" entry to the 3-dot menu inside WhatsApp's view-once viewer. */
+        const val VIEW_ONCE_SAVE: String = "privacy.viewOnceSave"
+
+        /** Auto-download chat media so photos/videos show without the download arrow. */
+        const val MEDIA_AUTOPREVIEW: String = "media.autoPreview"
+
+        /** Suppress outgoing read receipts, presence (online) and typing/recording state. */
+        const val GHOST_MODE: String = "privacy.ghostMode"
+
+        /** Force a curated allowlist of WA A/B boolean props to true (hidden features). */
+        const val PROPS_UNLOCK: String = "developer.propsUnlock"
+
+        /** Strip FLAG_SECURE from every WA Window so screenshots work (view-once, chat lock, 2FA, payments). */
+        const val STRIP_FLAG_SECURE: String = "privacy.stripFlagSecure"
+
+        /** Watch status broadcasts without your name appearing in the viewer list. */
+        const val ANONYMOUS_STATUS: String = "status.anonymousView"
+
+        /** Lift the 3-pin cap on the chat list. */
+        const val UNLIMITED_PINS: String = "chat.pinUnlimited"
+
         /** Defaults of every feature, used whenever the file does not say otherwise. */
         val DEFAULTS: Map<String, Boolean> = linkedMapOf(
             STATUS_DOWNLOAD to true,
             HD_IMAGES to true,
             HD_VIDEOS to true,
+            NO_STATUS_TRIM to true,
+            ALLOW_DEBUG to false,
+            ANTI_REVOKE to true,
+            SEE_EDITED to true,
+            VIEW_ONCE_BYPASS to true,
+            VIEW_ONCE_SAVE to true,
+            MEDIA_AUTOPREVIEW to true,
+            GHOST_MODE to true,
+            PROPS_UNLOCK to false,
+            STRIP_FLAG_SECURE to true,
+            ANONYMOUS_STATUS to true,
+            UNLIMITED_PINS to true,
         )
 
         /** The format this module writes and expects. */
