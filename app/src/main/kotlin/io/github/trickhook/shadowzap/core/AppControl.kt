@@ -10,7 +10,7 @@ import kotlin.system.exitProcess
 internal object AppControl {
     /**
      * Restarts the host: relaunches its launcher activity in a fresh task and kills this process, so every hook
-     * and the JS runtime start from scratch.
+     * starts from scratch.
      *
      * @throws IllegalStateException when the host has no launcher activity.
      */
