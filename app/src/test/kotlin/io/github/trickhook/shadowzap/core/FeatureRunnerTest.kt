@@ -101,7 +101,7 @@ class FeatureRunnerTest {
         val features = Features.ordered()
         val ids = features.map { it.id }
         assertEquals(ids.size, ids.toSet().size, "duplicate feature ids: $ids")
-        assertEquals(listOf("lifecycle", "whatsapp-info"), ids.take(2))
+        assertEquals(listOf("lifecycle", "whatsapp-info", "settings-entry"), ids.take(3))
         assertTrue(features.all { it.id.isNotBlank() })
     }
 

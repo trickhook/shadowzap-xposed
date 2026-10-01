@@ -1,5 +1,6 @@
 package io.github.trickhook.shadowzap.core
 
+import io.github.trickhook.shadowzap.whatsapp.SettingsEntryFeature
 import io.github.trickhook.shadowzap.whatsapp.WhatsAppInfoFeature
 
 /**
@@ -13,5 +14,8 @@ internal object Features {
 
         // Host facts first, so everything after can read HostInfo.
         WhatsAppInfoFeature,
+
+        // UI: add our entry inside WhatsApp's own Settings.
+        SettingsEntryFeature,
     )
 }
