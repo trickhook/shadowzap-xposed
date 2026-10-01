@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- A "T" whose stem ends in a hook. -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M40,28h28v8h-28z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M50,36h8v30a14,14 0,0 1,-28 0v-4h8v4a6,6 0,0 0,12 0z" />
+</vector>

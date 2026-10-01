@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name" translatable="false">Shadowzap</string>
+    <string name="xposed_description">Shadowzap for WhatsApp: a Shadowzap entry in WhatsApp settings, Status download and HD photos and videos.</string>
+</resources>

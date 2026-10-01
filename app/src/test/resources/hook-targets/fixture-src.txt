@@ -1,0 +1,49 @@
+Sources of fixture-035.dex, fixture-039.dex and fixture-041.dex (DexClassNamesTest).
+
+Regenerate (JDK 25, build-tools 37.0.0; put the classes in a jar so d8 sees the non-ASCII names intact):
+  javac -encoding UTF-8 --release 11 -d cls fixture/alpha/*.java fixture/beta/*.java
+  jar --create --file fixture.jar -C cls .
+  java -cp <build-tools>/lib/d8.jar com.android.tools.r8.D8 --min-api 21 --lib <android.jar> --output o35 fixture.jar
+  java -cp <build-tools>/lib/d8.jar com.android.tools.r8.D8 --min-api 28 --lib <android.jar> --output o39 fixture.jar
+  java -Dcom.android.tools.r8.dexContainerExperiment=true -cp <build-tools>/lib/d8.jar com.android.tools.r8.D8 \
+      --min-api 36 --lib <android.jar> --output o41 fixture.jar
+  (o35/classes.dex -> fixture-035.dex, o39 -> fixture-039.dex, o41 -> fixture-041.dex, a one-section 041 container)
+
+D8 9.2.4 adds com.android.tools.r8.annotations.LambdaMethod and names the lambda class fixture.alpha.Outer$0.
+
+---- fixture/alpha/Outer.java
+package fixture.alpha;
+
+public class Outer {
+    public static class Inner {
+    }
+
+    public interface Callback {
+        void call();
+    }
+
+    final Runnable task = () -> { };
+}
+
+---- fixture/alpha/Kind.java
+package fixture.alpha;
+
+enum Kind {
+    ONE,
+    TWO,
+}
+
+---- fixture/beta/Names.java
+package fixture.beta;
+
+// Names outside ASCII: a two-byte, a three-byte (CJK) and a supplementary letter (surrogate pair).
+abstract class Café {
+    abstract int size();
+}
+
+final class 数据 {
+}
+
+final class 𝔘nicode {
+}
+
